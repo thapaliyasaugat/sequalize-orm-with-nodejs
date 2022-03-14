@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require("cors")
 const productRouter = require('./routes/productRoutes')
+const reviewRouter = require('./routes/reviewRoutes')
 const app = express()
 
 
@@ -10,7 +11,8 @@ app.use(express.urlencoded({ extended: false }))
 
 //routers
 
-app.use('/api/products'.productRouter)
+app.use('/api/products', productRouter)
+app.use('/api/reviews', productRouter)
 
 app.get("/", (req, res) => {
     res.status(200).json("working")
